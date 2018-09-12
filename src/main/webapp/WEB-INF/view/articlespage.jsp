@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
 <head>
   <title>Article</title>
@@ -15,9 +15,7 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <style>
-    html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-  </style>
+
 </head>
 <body class="w3-light-grey">
 
@@ -47,14 +45,14 @@
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
     <a href="#" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  API</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Views</a>
+    <!--<a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Views</a>
     <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Traffic</a>
     <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  Geo</a>
     <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>  Orders</a>
     <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>  News</a>
     <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>  General</a>
     <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>  History</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>  Settings</a><br><br>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>  Settings</a>--><br><br>
   </div>
 </nav>
 
@@ -65,24 +63,46 @@
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
 
-  <h2>Documentation</h2>
+  <h2>Technical Documentation</h2>
   <c:url var="addUrl" value="/coinflipflop/main/articles/add"/>
-  <div class="w3-container">
+  <!--<div class="w3-container">
     <h5>Api</h5>
     <div class="w3-row">
       <div class="w3-col m2 text-center">
         <img class="w3-circle" src="" style="width:96px;height:96px">
       </div>
       <c:forEach items="${articles}" var="article">
-        <c:url var="editUrl" value="/coinflipflop/main/articles/edit?id=${article.id}" />
-        <c:url var="deleteUrl" value="/coinflipflop/main/articles/delete?id=${article.id}" />
+
         <div class="w3-col m10 w3-container">
+          <a><c:url var="editUrl" value="/coinflipflop/main/articles/edit?id=${article.id}" /></a>
+          <a><c:url var="deleteUrl" value="/coinflipflop/main/articles/delete?id=${article.id}" /></a>
           <h4><c:out value="${article.title}"/></h4>
           <p><c:out value="${article.article}" /></p>
           <p><c:out value="${article.code}" /></p><br>
         </div>
       </c:forEach>
+    </div> -->
+  <div class="w3-container">
+
+    <h2>API</h2>
+    <div class="w3-responsive">
+      <table class="w3-table-all">
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Code</th>
+        </tr>
+        <c:forEach items="${articles}" var="article">
+          <tr>
+            <td><c:out value="${article.title}"/></td>
+            <td><c:out value="${article.article}" /></td>
+            <td><c:out value="${article.code}" /></td>
+
+          </tr>
+        </c:forEach>
+      </table>
     </div>
+  </div>
     <!-- Footer -->
     <footer class="w3-container w3-padding-16 w3-light-grey">
       <h4>FOOTER</h4>
@@ -117,7 +137,6 @@
     }
   </script>
 
-  <body>
 
   </body>
 </html>
