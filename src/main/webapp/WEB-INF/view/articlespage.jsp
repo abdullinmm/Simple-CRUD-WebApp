@@ -91,12 +91,20 @@
           <th>Title</th>
           <th>Description</th>
           <th>Code</th>
+          <th>Edit</th>
+          <th>Delete</th>
+          <th>Add</th>
         </tr>
         <c:forEach items="${articles}" var="article">
+          <c:url var="editUrl" value="/coinflipflop/main/articles/edit?id=${article.id}" />
+        <c:url var="deleteUrl" value="/coinflipflop/main/articles/delete?id=${article.id}" />
           <tr>
             <td><c:out value="${article.title}"/></td>
             <td><c:out value="${article.article}" /></td>
             <td><c:out value="${article.code}" /></td>
+            <td><a href="${editUrl}">Edit</a></td>
+            <td><a href="${deleteUrl}">Delete</a></td>
+            <td><a href="${addUrl}">Add</a></td>
 
           </tr>
         </c:forEach>
