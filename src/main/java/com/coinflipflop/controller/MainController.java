@@ -46,7 +46,7 @@ public class MainController {
    * @return the name of the JSP page
    * */
 
-  @RequestMapping(value = "articles/add", method = RequestMethod.GET)
+  @RequestMapping(value = "/articles/add", method = RequestMethod.GET)
   public String getAdd(Model model){
     logger.debug("Received request to show add page");
     model.addAttribute("articleAttribute", new Article());
@@ -80,7 +80,7 @@ public class MainController {
     logger.debug("Received request to delete existing article");
     articleService.delete(id);
     model.addAttribute("id", id);
-    return "deletepage";
+    return "deletedpage";
   }
 
   /**

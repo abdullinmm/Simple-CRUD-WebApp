@@ -19,6 +19,6 @@
 <p>You have edited a article with id ${article.id} and title ${article.title} at <%= new java.util.Date() %></p>
 
 <c:url var="mainUrl" value="/coinflipflop/main/articles" />
-<p>Return to <a href="$mainUrl">Main List</a></p>
+<p>Return to <a href="${mainUrl}">Main List</a></p>
 </body>
 </html>
